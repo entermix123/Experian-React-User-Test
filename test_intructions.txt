@@ -1,0 +1,16 @@
+1. Download repo from GitHub in local direcory
+    terminal --> git clone https://github.com/entermix123/Experian-React-User-Test.git
+
+2. Open the repo folder in VSCode
+    terminal --> code .
+
+3. Navigate to server directory and start the server
+    terminal --> cd server
+    terminal --> node mock-server.js
+
+4. Navigate to client directory, install dependancies and start the client
+    terminal --> cd client
+    terminal --> npm install
+    terminal --> npm run dev
+
+5. Open http://localhost:5173 and test the application
