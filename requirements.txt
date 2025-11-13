@@ -1,0 +1,38 @@
+1. Table has class 'table' and contains three columns: IDBCursor, First Name and Last Name.
+It is populated with data that can be fetched from http://localhost:3030/data/users endpoint.
+The endpoint requires one query parameter: page (with zero-based numbering, if you do not provide this parameter, the API will return an error).
+This is example of a response formatted using JSON:
+{ "count": 13,  "results": [ { "id": 1, "firstName": "David", "lastName": "Wallace" }, { "id": 2, "firstName": "Sonia", "lastName": "Ross" }, { "id": 3, "firstName": "Anthony", "lastName": "Thomson" } ] }
+'count's value points to the total number of results, where as 'results' containes items from the given page. The page size equals 10.
+The latest page of data might be smaller. If a request is sent with the query param 'page' larger than the total number of pages, then the 'results' will be empty.
+
+2. Initially the table 'tbody' should be populated with the first page of data.
+
+3. The pagination section has class name 'pagination' and consists of four buttons which are stacked horizontally.
+- Click the first button navigates to the first page of data, where as clicking the second button navigates to the previous page of data. 
+The buttons become disabled either when the current page is the first page or when a page of data is currently being loaded.
+The buttons have (respectively) 'first-page-btn' and 'previous-page-btn' class names.
+- Similarly, clicking the third button navigates to the next page of data, where as clicking the last button navigates to the lastpage of data. The buttons becomes disabled either when the current page is the last page or where a page of data is currenlty being loaded. The buttons have (respectively) 'next-page-btn' and 'last-page-btn' class names.
+- The content of the buttons should be (respectively) 'first', 'preious', 'next' and 'last'
+
+4. While data is being loaded, all buttons should be disabled.
+5. The component should be the default export and can be either a function or a class.
+6. Use Fetch API for making requests.
+7. Please remember to use tbody when rendering data.
+
+Assumptions
+- https://example.com is a mocked service - it can be accessed only in the Codility UI.
+- Assume that a request to the mocked http://localhost:3030/data/users API never fails when 'page' questy parameter is provided
+- The 'Preview' tab will display your component. You can use it for testing purposes.
+- Desing/styling is not assessed and will not affect the score. You should focus only on implementing the requests.
+- You can use console.log and console.error for debugging purposes via your browser's development tools.
+- Only one import is allowed 'react' (v17.0.2), it is the top of the starting code.
+
+Example 1:
+The first page should disabled initialy. That means wile the component is mounting, a request should be made to http://localhost:3030/data/users?page=0 
+
+Example 2:
+Lets say the third page is displayed. Clicking the 'next' button (assuming is not disabled) triggers a request to http://localhost:3030/data/users?page=3, where clicking 'previous' button results in a request being sent to http://localhost:3030/data/users?page=1
+
+Example 3:
+Lets assume that the 'count' value from the http://localhost:3030/data/users?page=0 response equals 41. Clicking the last button navigates to the fifth page of data and a request to http://localhost:3030/data/users?page=4 should be made.
