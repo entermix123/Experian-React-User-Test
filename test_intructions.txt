@@ -8,7 +8,7 @@
     terminal --> cd server
     terminal --> node mock-server.js
 
-4. Navigate to client directory, install dependancies and start the client
+4. Open new terminal, navigate to client directory, install dependancies and start the client
     terminal --> cd client
     terminal --> npm install
     terminal --> npm run dev
